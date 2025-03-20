@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+// Define a message type representing a person.
+message Person {
+  string name = 1;
+  int32 age = 2;
+}
+
+service AddressBookService {
+  // Add a person to the address book.
+  rpc AddPerson(Person) returns (Person);
+  
+  // Get a person from their name
+  rpc GetPersonByName(GetPersonByNameRequest) returns (Person);
+
+  // Gets all persons 
+  rpc GetAllPerson(GetAllPersonsRequest) returns (GetAllPersonType);
+}
+
+message GetPersonByNameRequest {
+  string name = 1;
+}
+
+message GetAllPersonsRequest {}  
+
+message GetAllPersonType {
+  repeated Person persons = 1; // `persons` is an array of `Person`
+}
