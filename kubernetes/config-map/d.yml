@@ -20,8 +20,8 @@ spec:
         env:
         - name: DATABASE_URL
           valueFrom:
-            configMapKeyRef:
-              name: ecom-backend-config
+            secretKeyRef:
+              name: secret
               key: database_url
         - name: CACHE_SIZE
           valueFrom:

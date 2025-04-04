@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ecom-backend-service
-spec:  
-  type: NodePort
+spec:
   selector:
     app: ecom-backend
   ports:
-    - port: 3000
+    - protocol: TCP
+      port: 3000
       targetPort: 3000
-      nodePort: 30007
+  type: LoadBalancer
